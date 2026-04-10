@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 const messageSchema = new mongoose.Schema(
 {
     senderId: {
-        types: moongose.Schema.Types.ObjectsId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true,
     },
     receiverId: {
-        type:mongoose.Schema.Types.ObjectsId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true,
     },
@@ -16,7 +16,7 @@ const messageSchema = new mongoose.Schema(
         type: String,
     },
     image: {
-        type: string,
+        type: String,
     },
 },
 {timestamps: true }

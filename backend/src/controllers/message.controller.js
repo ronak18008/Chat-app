@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import Message from "../models/message.model.js";
+import cloudinary from "../lib/cloudinary.js";
 
 export const getUsersForSidebars = async (req, res) => {
     try {
@@ -20,7 +21,7 @@ export const getMessages = async(req, res) => {
         const { id:userToChatId } = req.params
         const myId = req.user._id;
 
-        const messages = await Messages.find({
+        const messages = await Message.find({
             $or: [
                 { sender: myId, receiverId: userToChatId},
                 { sender: userToChatId, receiverId: myId}
@@ -56,11 +57,11 @@ export const sendMessage = async(req, res) => {
             image: imageUrl
         });
 
-        await message.save();
+        await newMessage.save();
 
         // todo: realtime functionality goes here  => socket.io
 
-        res.status(201).json({ message })
+        res.status(201).json({ message: newMessage })
 
     } catch (error) {
         console.log("Error in sendMessage controller: ", error.message)
