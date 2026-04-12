@@ -1,9 +1,28 @@
+import Navbar from "./components/navbar";
+import SignUpPage from "./pages/SignUpPage";
+import HomePage from "./pages/Homepage";
+import LoginPage from "./pages/LoginPage";
+import Settings from "./pages/Settings";
+import ProfilePage from "./pages/ProfilePage";
+
+import { Routes, Route } from "react-router-dom";
+
 const App = () => {
-  return <div className="text-red-500">Hello
-  <button
-  class="inline-block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-900">
-  Button
-</button>
-  </div>
-}
+  return (
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/Signup" element={<SignupPage />} />
+        <Route path="/Login" element={<LoginPage />} />
+        <Route path="/Setting" element={<SettingPage />} />
+        <Route path="/Profile" element={<ProfilePage />} />
+        
+        
+
+        
+      </Routes>
+    </div>
+  );
+};
 export default App;
