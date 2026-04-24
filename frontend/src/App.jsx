@@ -7,6 +7,8 @@ import HomePage from "./pages/HomePage";
 import { Loader } from "lucide-react";
 import { useEffect } from "react";
 
+import { Toaster } from "react-hot-toast";
+
 // assume you are getting authUser from context or state
 import { useAuthStore } from "./store/useAuthStore";
 
@@ -58,6 +60,7 @@ function App() {
         />
 
       </Routes>
+      <Toaster />
     </div>
   );
 }
