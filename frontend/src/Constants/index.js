@@ -1,10 +1,5 @@
-import daisyui from 'daisyui'
-
-export default {
-  plugins: [daisyui],
-  daisyui: {
-    themes: [
-      "light",
+export const THEMES = [
+"light",
       "dark",
       "cupcake",
       "bumblebee",
@@ -36,6 +31,4 @@ export default {
       "dim",
       "nord",
       "sunset",
-    ],
-  }
-}
+];

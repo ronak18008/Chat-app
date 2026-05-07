@@ -11,10 +11,11 @@ import { Toaster } from "react-hot-toast";
 
 // assume you are getting authUser from context or state
 import { useAuthStore } from "./store/useAuthStore";
+import { useThemeStore } from "./store/useThemeStore";
 
 function App() {
   const { authUser, isCheckingAuth, checkAuth } = useAuthStore();
-
+ const { theme } = useThemeStore();
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
@@ -26,7 +27,7 @@ function App() {
   );
 
   return (
-    <div>
+    <div data-theme={theme}>
       <Routes>
 
         {/* Home */}
